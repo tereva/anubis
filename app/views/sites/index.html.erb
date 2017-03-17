@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sites</h1>
+
+<div class="row"> <!--  row 1  -->
+
+<div class="col-md-12">
+ <div class="panel panel-primary">
+
+  <div class="panel-heading">
+    <div class="row">
+    <div class="col-md-3">
+    </div>
+      <div class="col-md-2">
+        Site
+      </div>
+          <div class="col-md-2">
+     Catégorie
+     </div>
+      <div class="col-md-3">
+      Titre 
+     </div>
+     <div class="col-md-2">
+      Description
+     </div>
+
+
+   </div>
+ </div>  
+
+   <table class="table"> 
+    <% @sites.each do |site| %>
+    <tr class=<%= site.category ? "success" :  "danger" %>>
+          <td>  
+        <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
+        <%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete, class: "btn btn-xs btn-danger" %>
+      </td>
+      <td>
+       <a href='<%= site.web %>'><%= site.web %></a>
+      </td>
+            <td>  
+        <%= site.category ? Category.find(site.category_id).name :  "vide" %>
+      </td> 
+      <td>
+         <%= site.title %>
+      </td>
+      <td>  
+        <%= site.description %>
+      </td>  
+
+
+
+    </tr> <!-- one row -->
+    <% end %>
+
+  </table> <!--  panel-body -->
+
+</div> <!-- panel  -->
+
+</div><!-- bloc 2 row 1-->
+ 
+</div><!-- fin row 1 -->
+
+<br>
+
+<%= link_to 'New Site', new_site_path %>
