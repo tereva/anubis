@@ -11,33 +11,51 @@
     </div>
   <% end %>
 
- <div class="field">
+
+<div class="row"> <!-- row -->
+  <div class="col-md-6">
+    <div class="panel panel-primary panelrow"> 
+
+      <div class="panel-heading">
+     <%= site.web%>
+      </div>
+
+  <div class="panel-body">
+
+ <div class="form-group">
     <%= f.label :web %>
-    <%= f.text_field :web %>
+    <%= f.text_field :web, :class => "form-control input-sm"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "form-control input-sm"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :class =>"form-control input-sm"  %>
   </div>
 
-  <div class="field">
-    <%= f.label :kw %>
-    <%= f.text_field :kw %>
+  <div class="form-group">
+    <%= f.label 'Mots clés' %>
+    <%= f.text_field :kw , :class =>"form-control input-sm"  %>
   </div>
 
-  <div class="field">   
-   <%= f.label :category_id  %><br />
-<%= f.collection_select(:category_id, Category.all, :id, :name,  :include_blank => true)   %> 
+  <div class="form-group">   
+   <%= f.label 'Catégorie'  %><br />
+   <!-- <%= f.label :category_id  %> -->
+<%= f.collection_select(:category_id, Category.all, :id, :name,  {:include_blank => true}, {:class =>"form-control"})   %> 
 
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Enregister', :class => "btn btn-sm btn-primary" %>
   </div>
+
+
+ </div><!--  panel body -->
+ </div> <!-- panel row -->
+</div> <!-- col-md-6 col-md-offset-3 -->
+</div> <!-- row -->
 <% end %>

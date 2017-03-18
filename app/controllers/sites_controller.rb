@@ -3,6 +3,40 @@ class SitesController < ApplicationController
   before_action :authorize
 
 
+  def valid
+    @page_title = 'Sites classés'
+    @sites = Site.where("category_id IS NOT NULL AND category_id != 1 AND category_id != 2").paginate(page: params[:page])
+    render 'index'
+  end
+
+  def standby
+    @page_title = 'Sites en attente'
+    @sites = Site.where("category_id IS NULL OR category_id = 2").paginate(page: params[:page])
+    render 'index'
+  end
+
+  def trash
+    @page_title = 'Corbeille'
+    @sites = Site.where("category_id = 1").paginate(page: params[:page])
+    render 'index'
+  end
+
+  def trash_it
+    @site=Site.find(params[:id])
+    @site.update_attribute(:category_id, 1)   
+     redirect_to sites_standby_path
+    #@site.trash_it_now
+
+    #@sites=Site.all.paginate(page: params[:page])
+    #render 'index'
+  end
+
+  def standby_it
+    @site=Site.find(params[:id])
+    @site.update_attribute(:category_id, 2)   
+    redirect_to sites_standby_path   
+  end
+  
   # GET /sites
   # GET /sites.json
   def index
@@ -30,7 +64,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to @site, notice: 'Site was successfully created.' }
+        format.html { redirect_to home_path, notice: 'Site was successfully created.' }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -44,7 +78,7 @@ class SitesController < ApplicationController
   def update
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to root_path, notice: 'Site was successfully updated.' }
+        format.html { redirect_to home_path, notice: 'Site was successfully updated.' }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }

@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sites</h1>
+<h1><%= @page_title %></h1>
+
+
+
+<div class="pagination">
+  <%= will_paginate @sites %>
+</div> 
 
 <div class="row"> <!--  row 1  -->
 
@@ -30,10 +36,12 @@
 
    <table class="table"> 
     <% @sites.each do |site| %>
-    <tr class=<%= site.category ? "success" :  "danger" %>>
+   <!-- <tr class=<%= site.category ? "success" :  "danger" %>> -->
+   <tr>
           <td>  
         <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
-        <%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete, class: "btn btn-xs btn-danger" %>
+        <%= link_to 'Standby it', standby_it_site_path(site), class: "btn btn-xs btn-warning" %>
+        <%= link_to 'Trash it', trash_it_site_path(site), class: "btn btn-xs btn-danger" %>
       </td>
       <td>
        <a href='<%= site.web %>'><%= site.web %></a>
@@ -61,6 +69,9 @@
  
 </div><!-- fin row 1 -->
 
-<br>
-
-<%= link_to 'New Site', new_site_path %>
+<div class="pagination">
+  <%= will_paginate @sites %>
+</div> 
+<p>
+<%= link_to 'Ajouter un site', new_site_path, class: "btn btn-sm btn-primary"  %>
+</p>

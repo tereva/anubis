@@ -1,4 +1,4 @@
-<%= form_for(category) do |f| %>
+<%= form_for(category, :html => {:class => 'form-inline'}) do |f| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -11,12 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+
+  <div class="form-group">
+    <%= f.text_field :name, :class => "form-control"   %>
   </div>
 
+  <div class="form-group">
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Enregister', :class => "btn btn-primary"  %>
+  </div> 
   </div>
+
 <% end %>
