@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def admin?
-	session[:password] == 'aitapeapea'
+	session[:password] == 'manator17*'
 	end
 
 	def authorize

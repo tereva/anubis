@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @page_title %></h1>
-
-
-
+<p>
+Il y a <%= @sites.count %> sites concernés. 
+</p>
 <div class="pagination">
   <%= will_paginate @sites %>
 </div> 

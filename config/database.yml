@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: aitovqvx_yp
+  socket: /var/lib/mysql/mysql.sock
+  database: aitovqvx_anubis
   username: aitovqvx_aito
   password: 'aitoAplanet17*'
