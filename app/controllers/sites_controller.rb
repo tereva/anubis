@@ -2,8 +2,17 @@ class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy] 
   before_action :authorize
 
+  def search
+   #@sites = Site.search(params[:search]).paginate(page: params[:page])
+   #@sites = Site.where("category_id='2'")
+   #@sites = Site.where("description LIKE %?%", params[:search]).paginate(page: params[:page])
+   @sites = Site.search(params[:search])
+   render 'index2'
+   
+  end
 
   def valid
+
     @page_title = 'Sites classés'
     @sites = Site.where("category_id IS NOT NULL AND category_id != 1 AND category_id != 2").paginate(page: params[:page])
     render 'index'

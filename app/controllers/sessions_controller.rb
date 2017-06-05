@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 	def destroy
 	  reset_session
 	  flash[:info] = "Successfully logged out"
-	  redirect_to login_path
+	  redirect_to home_path
 	end
 
 

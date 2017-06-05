@@ -10,12 +10,14 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
-  get 'home' =>  'sites#standby'
+  get 'home' =>  'static_pages#home'
   get 'sites_valid' => 'sites#valid'
   get 'sites_standby' => 'sites#standby'
   get 'sites_trash' => 'sites#trash'
+  get 'search' => 'sites#search'
 
-  root to: 'sessions#new'
+
+  root to: 'static_pages#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,51 @@
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%= home_path %>">AITOWEB</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                
+            <% if admin? %>
+            <li class="dropdown">
+            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sites<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                   <li><%= link_to "Sites classés", sites_valid_path %></li>
+                   <li><%= link_to "Sites en attente",  sites_standby_path %> </li>
+                   <li><%= link_to "Sites jetés",  sites_trash_path%> </li>
+                  </ul>
+             </li>  
+             <li><%= link_to "Catégories", categories_path%></li>
+             <li><%= link_to "Deconnecter", '/logout' %></li>
+            <% else %>
+
+            <li class="dropdown">
+            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+
+            <% Category.all.each do |category| %>
+             <li>
+             <%= link_to category.name, category  %>
+             </li>
+            <% end %>
+                  </ul>
+             </li> 
+            <li><%= link_to "Connexion", '/login' %></li>
+             <% end %>
+
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+

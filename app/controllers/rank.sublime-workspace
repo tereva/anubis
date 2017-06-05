@@ -1,0 +1,356 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"trash",
+				"trash_it"
+			],
+			[
+				"cate",
+				"category_id"
+			],
+			[
+				"SIte",
+				"Sites"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/tev/ROR/rank/config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 178,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/tev/ROR/rank/app/controllers/sites_controller.rb",
+			"settings":
+			{
+				"buffer_size": 50,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/tev/ROR/rank",
+		"/home/tev/ROR/rank/app",
+		"/home/tev/ROR/rank/app/controllers",
+		"/home/tev/ROR/rank/config"
+	],
+	"file_history":
+	[
+		"/home/tev/ROR/anubis/config/environments/production.rb",
+		"/home/tev/ROR/anubis/config/database.yml",
+		"/home/tev/ROR/anubis/config/secrets.yml",
+		"/home/tev/ROR/anubis/app/views/sites/new.html.erb",
+		"/home/tev/ROR/anubis/app/views/sites/edit.html.erb",
+		"/home/tev/ROR/anubis/app/views/categories/_form.html.erb",
+		"/home/tev/ROR/anubis/app/views/sites/_form.html.erb",
+		"/home/tev/ROR/anubis/app/views/categories/edit.html.erb",
+		"/home/tev/ROR/anubis/app/assets/stylesheets/custom.scss",
+		"/home/tev/ROR/anubis/app/views/categories/new.html.erb",
+		"/home/tev/ROR/anubis/app/views/categories/_category.json.jbuilder",
+		"/home/tev/ROR/anubis/app/views/categories/index.html.erb",
+		"/home/tev/ROR/anubis/config/routes.rb",
+		"/home/tev/ROR/anubis/app/views/sites/filtre_sites.html.erb",
+		"/home/tev/ROR/anubis/app/models/site.rb",
+		"/home/tev/ROR/anubis/Gemfile",
+		"/home/tev/ROR/anubis/app/controllers/sites_controller.rb",
+		"/home/tev/ROR/anubis/app/views/layouts/application.html.erb",
+		"/home/tev/ROR/anubis/data_sites_cat.sql",
+		"/home/tev/ROR/anubis/app/controllers/application_controller.rb",
+		"/home/tev/ROR/annuaire/aitoweb_data.sql",
+		"/home/tev/ROR/anubis/app/controllers/sessions_controller.rb",
+		"/home/tev/ROR/anubis/app/controllers/categories_controller.rb",
+		"/home/tev/ROR/anubis/app/helpers/sessions_helper.rb",
+		"/home/tev/ROR/anubis/app/views/session/new.html.erb",
+		"/home/tev/ROR/anubis/app/views/layouts/_footer.html.erb",
+		"/home/tev/ROR/anubis/app/assets/stylesheets/application.css",
+		"/home/tev/ROR/anubis/app/assets/javascripts/application.js",
+		"/home/tev/ROR/anubis/app/assets/stylesheets/application.scss",
+		"/home/tev/ROR/laflechedutemps2/config/routes.rb",
+		"/home/tev/ROR/anubis/app/assets/stylesheets/application.css.scss",
+		"/home/tev/ROR/laflechedutemps2/app/views/static_pages/home.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/layouts/home_layout.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/_index.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/layouts/_shim.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/layouts/application.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/_body.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/_importevents.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/_eventsform.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/controllers/histories_controller.rb",
+		"/home/tev/ROR/laflechedutemps2/app/models/event.rb",
+		"/home/tev/ROR/laflechedutemps2/app/controllers/registres_controller.rb",
+		"/home/tev/ROR/laflechedutemps2/app/models/registre.rb",
+		"/home/tev/ROR/anubis/app/models/category.rb",
+		"/home/tev/ROR/blog/config/routes.rb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/edit.html.erb",
+		"/home/tev/ROR/anubis/app/views/sites/show.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/show.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/histories/index.html.erb",
+		"/home/tev/ROR/laflechedutemps2/app/views/static_pages/index.html.erb",
+		"/home/tev/ROR/blog/app/views/welcome/index.html.erb",
+		"/home/tev/ROR/aitoweb/config/routes.rb",
+		"/home/tev/WEB/aitoweb/Gemfile",
+		"/home/tev/ROR/aitoweb/config/database.yml",
+		"/home/tev/WEB/ranking/rank.php",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/layout.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/footer.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/breadcrumb.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/homeslider/homeslider.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/header.tpl",
+		"/home/tev/WEB/Bootstrap/startbootstrap-one-page-wonder-gh-pages/index.html",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/tivi.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/homeslider/header.tpl",
+		"/home/tev/WEB/Bootstrap/startbootstrap-heroic-features-gh-pages/index.html",
+		"/home/tev/WEB/eaufiltre_loc/.htaccess",
+		"/home/tev/WEB/Bootstrap/startbootstrap-full-width-pics-gh-pages/css/full-width-pics.css",
+		"/home/tev/WEB/eaufiltre_loc/index.php",
+		"/home/tev/WEB/eaufiltre_loc/header.php",
+		"/home/tev/WEB/eaufiltre_loc/config/config.inc.php",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blockcontact/blockcontact.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blockcontact/nav.tpl.old",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blockuserinfo/nav.tpl",
+		"/home/tev/WEB/eaufiltre_loc/modules/blockuserinfo/nav.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blocktopmenu/blocktopmenu.tpl",
+		"/home/tev/WEB/eaufiltre_loc/modules/blockpermanentlinks/blockpermanentlinks.php",
+		"/home/tev/WEB/eaufiltre_loc/modules/blockpermanentlinks/blockpermanentlinks.tpl",
+		"/home/tev/WEB/eaufiltre_loc/modules/blockpermanentlinks/blockpermanentlinks-header.tpl",
+		"/home/tev/WEB/eaufiltre_loc/modules/blockpermanentlinks/blockpermanentlinks-footer.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blockuserinfo/blockuserinfo.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blocklink/blocklink.tpl",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/modules/blocklanguages/blocklanguages.tpl",
+		"/home/tev/WEB/eaufiltre_loc/test-smarties.php",
+		"/home/tev/WEB/eaufiltre_loc/themes/tivi-bootstrap/test-smarties.tpl",
+		"/home/tev/Documents/idees-bourse",
+		"/home/tev/WEB/eaufiltre_loc/config/settings.inc.php",
+		"/home/tev/WEB/eaufiltre_loc/config/defines.inc.php",
+		"/home/tev/WEB/eaufiltre_loc/config/defines_uri.inc.php",
+		"/home/tev/Téléchargements/1480962257-477f0340.sql",
+		"/home/tev/WEB/info.php",
+		"/home/tev/WEB/eaufiltre.loc/config/settings.inc.php",
+		"/home/tev/Téléchargements/1480962257-477f0340.sql.bz2",
+		"/home/tev/.sublime_text_3/sublime_text.desktop",
+		"/home/tev/.local/share/applications/sublime_text.desktop",
+		"/usr/share/applications/rhythmbox-device.desktop",
+		"/usr/share/applications/rhythmbox.desktop"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"3",
+			"000000",
+			"SSL",
+			"PS_SHOP_DOMAIN"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/tev/ROR/rank/config/routes.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 178,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								178,
+								178
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/tev/ROR/rank/app/controllers/sites_controller.rb",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 50,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "rank.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
