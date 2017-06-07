@@ -8,7 +8,8 @@
     <ul class="list-group"> 
       <% @topsites.each do |site| %> 
       <li class="list-group-item"> 
-        <%= link_to site.title, site %> 
+        <%= link_to site.title, hit_it_site_path(site) %> 
+        <span class="badge"><%= site.hit %></span>
       </li>
       <% end %>
     </ul>                 
@@ -21,7 +22,7 @@
       <% @lastsites.each do |site| %>
       <li class="list-group-item">
         <span class="badge"><%= site.updated_at.strftime("%d %b %Y") %></span>
-        <%= link_to site.title, site %> 
+        <%= link_to site.title, hit_it_site_path(site) %> 
       </li>
       <% end %>
     </ul>      
@@ -34,7 +35,9 @@
    <ul class="list-group"> 
     <% @topcat.each do |cat| %>
     <li class="list-group-item">
-      <%= link_to cat.name, cat %> 
+      <%= link_to cat.name, hit_it_category_path(cat)  %> 
+      <span class="badge"><%= cat.hit %></span>
+       <span class="badge"><%= Site.where(:category_id => cat.id).count %></span>
     </li>
     <% end %>
   </ul>      

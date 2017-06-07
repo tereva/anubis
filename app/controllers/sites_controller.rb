@@ -1,6 +1,16 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize, except: [:search, :show, :valid]
+  before_action :authorize, except: [:search, :show, :valid, :hit_it]
+
+  
+
+  def hit_it
+    #@site.update_attribute(:hit, @site.hit+1) 
+    Site.increment_counter(:hit,params[:id])
+    @site=Site.find(params[:id])
+    render 'show'
+  end
+
 
   def search
    #@sites = Site.search(params[:search]).paginate(page: params[:page])

@@ -1,6 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize, except: [:show]
+  before_action :authorize, except: [:show, :hit_it]
+
+
+  def hit_it
+    #@site.update_attribute(:hit, @site.hit+1) 
+    Category.increment_counter(:hit,params[:id])
+    redirect_to category_path
+  end
 
   # GET /categories
   # GET /categories.json

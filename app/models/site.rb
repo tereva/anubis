@@ -2,6 +2,12 @@ class Site < ApplicationRecord
  
   belongs_to :category
 
+
+ #def hit
+ #   self.hit++
+  #end
+
+
   def trash_it_now
     self.category_id = 1
     self.save

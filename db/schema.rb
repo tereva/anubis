@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315231300) do
+ActiveRecord::Schema.define(version: 20170607083013) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "hit"
   end
 
   create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -26,7 +27,9 @@ ActiveRecord::Schema.define(version: 20170315231300) do
     t.integer  "category_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "hit"
     t.index ["category_id"], name: "index_sites_on_category_id", using: :btree
+    t.index ["description", "kw", "title"], name: "FullText", type: :fulltext
   end
 
   add_foreign_key "sites", "categories"

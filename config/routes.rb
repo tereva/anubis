@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :sites do
     get 'trash_it', :on => :member  
     get 'standby_it', :on => :member  
+    get 'hit_it', :on => :member 
   end
+
+ resources :categories do
+    get 'hit_it', :on => :member 
+  end
+
   resources :categories
   resources :sessions
   #resources :trash_it
