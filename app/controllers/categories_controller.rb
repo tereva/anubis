@@ -12,7 +12,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     req="category_id = "+params[:id]
-    @sites = Site.where(req)
+    @page_title = Category.find(params[:id]).name
+    @sites = Site.where(req).paginate(page: params[:page])
+    render 'sites/index'
   end
 
   # GET /categories/new

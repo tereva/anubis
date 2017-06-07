@@ -13,7 +13,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                
             <% if admin? %>
             <li class="dropdown">
             <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sites<b class="caret"></b></a>
@@ -21,6 +20,7 @@
                    <li><%= link_to "Sites classés", sites_valid_path %></li>
                    <li><%= link_to "Sites en attente",  sites_standby_path %> </li>
                    <li><%= link_to "Sites jetés",  sites_trash_path%> </li>
+                    <li><%= link_to "Ajouter", new_site_path%></li>
                   </ul>
              </li>  
              <li><%= link_to "Catégories", categories_path%></li>
@@ -31,7 +31,7 @@
             <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<b class="caret"></b></a>
                   <ul class="dropdown-menu">
 
-            <% Category.all.each do |category| %>
+            <% Category.public.each do |category| %>
              <li>
              <%= link_to category.name, category  %>
              </li>

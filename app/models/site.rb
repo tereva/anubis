@@ -22,6 +22,10 @@ def self.search(search)
   end
 end
 
+def self.approved
+where('category_id IS NOT NULL AND category_id != 1 AND category_id != 2')
+end
+
 
 
 end

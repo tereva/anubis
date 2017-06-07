@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize
+  before_action :authorize, except: [:search, :show, :valid]
 
   def search
    #@sites = Site.search(params[:search]).paginate(page: params[:page])
@@ -12,9 +12,8 @@ class SitesController < ApplicationController
   end
 
   def valid
-
     @page_title = 'Sites classés'
-    @sites = Site.where("category_id IS NOT NULL AND category_id != 1 AND category_id != 2").paginate(page: params[:page])
+    @sites = Site.approved.paginate(page: params[:page])
     render 'index'
   end
 
@@ -49,7 +48,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    @sites = Site.all.paginate(page: params[:page])
   end
 
   # GET /sites/1

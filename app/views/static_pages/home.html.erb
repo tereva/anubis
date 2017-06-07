@@ -1,32 +1,48 @@
 
-  <header>
-  <div class="container"> 
-    <div class="jumbotron myBackground">
-      <h1 class="whitney">Kronofil</h1>
-   <p>Un voyage dans le temps et l'espace</p>
-      <a href="#about" class="btn btn-circle page-scroll">
-        <i class="fa fa-angle-double-down animated"></i>
-      </a>
-    </div>
-  </div>
-</header>
+<hr class="featurette-divider" id="summary">
 
-
-<hr id="about" class="featurette-divider">
-
-
-
+<!-- Content Row -->
 <div class="row">
-  <div class="featurette" >
-    <img class="featurette-image img-circle img-responsive pull-right" src="<%= asset_path('laine2.jpg') %>" >
-    <h2 class="featurette-heading">Déroulez les fils du temps... 
-      <span class="text-muted">démêlez les noeuds des fils</span>
-    </h2>
-    <p class="lead"> L'idée originelle du projet KRONOFIL émerge d'un désir de pouvoir contextualiser dans l'espace et le temps une généalogie. Plus généralement, on peut faire le constat trivial suivant : la bonne compréhension des évènements historiques ou généalogiques nécéssite l'observation d'un contexte global dans lequel ils se déroulent. Une chronologie est finalement, à l'image d'une pelote de laine...au milieu d'autre pelotes : dans un joyeux mélange, parfois entremêlées, souvent reliées par un lien de causalité dans l'espace et le temps. Venez ici tirer ces fils...tirer vos fils..les uns à côté des autres</p>
-
-    <a class="btn btn-lg btn-info" href="#summary">Dérouler</a>
+  <div class="col-md-4">
+    <h2>Top Sites</h2>
+    <ul class="list-group"> 
+      <% @topsites.each do |site| %> 
+      <li class="list-group-item"> 
+        <%= link_to site.title, site %> 
+      </li>
+      <% end %>
+    </ul>                 
+    <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>
   </div>
+  <!-- /.col-md-4 -->
+  <div class="col-md-4">
+    <h2>Sites récents</h2>
+     <ul class="list-group"> 
+      <% @lastsites.each do |site| %>
+      <li class="list-group-item">
+        <span class="badge"><%= site.updated_at.strftime("%d %b %Y") %></span>
+        <%= link_to site.title, site %> 
+      </li>
+      <% end %>
+    </ul>      
+  <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>
+</div>
+<!-- /.col-md-4 -->
+<div class="col-md-4">
+  <h2>Top catégories</h2>
+  <p>
+   <ul class="list-group"> 
+    <% @topcat.each do |cat| %>
+    <li class="list-group-item">
+      <%= link_to cat.name, cat %> 
+    </li>
+    <% end %>
+  </ul>      
+</p>
+
 
 </div>
+<!-- /.col-md-4 -->
+</div>
+<!-- /.row -->
 
-<hr class="featurette-divider" id="summary">

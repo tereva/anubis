@@ -132,10 +132,6 @@ aside {
 }
 
 
-
-
-
-
 header {
   background: url(bib.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -147,7 +143,7 @@ header {
 
 .myBackground {
   margin: 15%;
-  background-color: rgba(255,255,255, 0.5);
+  background-color: rgba(255,255,255, 0.2);
   color: inherit;
 }
 
@@ -255,3 +251,30 @@ header {
 }
 
 .timeline-default { overflow-x:hidden; overflow-y:scroll;}
+
+.header-image {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: url('aito.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.headline {
+    padding: 120px 0;
+}
+
+.headline h1 {
+    font-size: 130px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+.headline h2 {
+    font-size: 77px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
