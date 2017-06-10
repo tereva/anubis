@@ -43,7 +43,11 @@ Il y a <%= @sites.count %> sites concernés.
           <td>  
         <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
         <%= link_to 'Standby it', standby_it_site_path(site), class: "btn btn-xs btn-warning" %>
+        <% if @page_title == 'Corbeille' %>
+<%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete,   class: "btn btn-xs btn-danger" %>
+        <% else %>
         <%= link_to 'Trash it', trash_it_site_path(site), class: "btn btn-xs btn-danger" %>
+        <% end %>
       </td>
     <% end %>
       <td>
@@ -53,7 +57,7 @@ Il y a <%= @sites.count %> sites concernés.
         <%= site.category ? Category.find(site.category_id).name :  "vide" %>
       </td> 
       <td>
-         <%= site.title %>
+         <% site.title.upcase %>
       </td>
       <td>  
         <%= site.description %>

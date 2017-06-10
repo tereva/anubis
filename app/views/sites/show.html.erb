@@ -26,40 +26,5 @@
 </p>
 
 
-<p>
- <strong>Adresses : </strong>
 
-<table class="table">
-
-<tr>
-<th></th>
-<th>Nom</th>
-<th>Ile</th>
-<th>Ville</th>
-<th>Rue</th>
-<th>Lat</th>
-<th>Long</th>
-</tr>
-
-<% @site.locations.each do |loc|%>
-  <tr>
-<td>
-<%= link_to 'Delete', loc, method: :delete, class: "btn btn-xs btn-warning" %>
-  
-</td>
-<td><%= loc.name %></td>
-<td><%= loc.island  %></td>
-<td><%= loc.city  %></td>
-<td><%= loc.street  %></td>
-<td><%= loc.lat %></td>
-<td><%= loc.long  %></td>
-  
-    </tr>
-    <% end %>
- </table>
-
-
-</p>
-
-<%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>

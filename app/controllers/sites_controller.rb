@@ -1,10 +1,10 @@
 class SitesController < ApplicationController
-  before_action :set_site, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize, except: [:search, :show, :valid, :hit_it]
+
+  before_action :set_site, only: [:show, :edit, :update, :destroy, :add_location] 
+  before_action :authorize, except: [:search, :valid, :hit_it]
 
   
-    def add_location
-    @site=Site.find(params[:id])    
+    def add_location 
     @site.locations.build
     render 'edit'
   end

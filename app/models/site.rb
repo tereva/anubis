@@ -1,7 +1,14 @@
 class Site < ApplicationRecord
  
   belongs_to :category
-  has_many :locations, validate: false
+  has_many :locations, validate: false, dependent: :destroy
+
+  validates :title, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :web, presence: true, uniqueness: true
+  validates :kw, presence: true
+  validates :description, presence: true
+  
+
 
   accepts_nested_attributes_for :locations, allow_destroy: true
 

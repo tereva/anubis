@@ -13,7 +13,7 @@
          <% @topsites.each do |site| %> 
          <tr>
            <td>
-             <%= link_to site.title, hit_it_site_path(site) %> 
+             <%= link_to site.title.upcase, hit_it_site_path(site) %> 
             </td>
             <td>
              <span class="badge"><%= site.hit %></span>
