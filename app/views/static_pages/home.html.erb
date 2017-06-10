@@ -3,49 +3,85 @@
 
 <!-- Content Row -->
 <div class="row">
-  <div class="col-md-4">
-    <h2>Top Sites</h2>
-    <ul class="list-group"> 
-      <% @topsites.each do |site| %> 
-      <li class="list-group-item"> 
-        <%= link_to site.title, hit_it_site_path(site) %> 
-        <span class="badge"><%= site.hit %></span>
-      </li>
-      <% end %>
-    </ul>                 
-    <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>
-  </div>
-  <!-- /.col-md-4 -->
-  <div class="col-md-4">
-    <h2>Sites récents</h2>
-     <ul class="list-group"> 
-      <% @lastsites.each do |site| %>
-      <li class="list-group-item">
-        <span class="badge"><%= site.updated_at.strftime("%d %b %Y") %></span>
-        <%= link_to site.title, hit_it_site_path(site) %> 
-      </li>
-      <% end %>
-    </ul>      
-  <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>
-</div>
-<!-- /.col-md-4 -->
-<div class="col-md-4">
-  <h2>Top catégories</h2>
-  <p>
-   <ul class="list-group"> 
-    <% @topcat.each do |cat| %>
-    <li class="list-group-item">
-      <%= link_to cat.name, hit_it_category_path(cat)  %> 
-      <span class="badge"><%= cat.hit %></span>
-       <span class="badge"><%= Site.where(:category_id => cat.id).count %></span>
-    </li>
-    <% end %>
-  </ul>      
-</p>
 
+  <div class="col-md-4"> 
+  <div class="panel panel-default panelrow"">
+      <div class="panel-heading">
+         <h2>Top Sites</h2>
+      </div>
+      <table class="table">
+         <% @topsites.each do |site| %> 
+         <tr>
+           <td>
+             <%= link_to site.title, hit_it_site_path(site) %> 
+            </td>
+            <td>
+             <span class="badge"><%= site.hit %></span>
+          </td>
+        </tr>
+         <% end %>
+        <tr> 
+         <td> 
+         <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>   
+         </td>
+         <td></td>
+        </tr>
+      </table>
+    </div> <!-- panel heading -->
+  </div> <!-- col md 4-->
 
-</div>
-<!-- /.col-md-4 -->
-</div>
-<!-- /.row -->
+   
+ <div class="col-md-4"> 
+  <div class="panel panel-default panelrow"">
+      <div class="panel-heading">
+         <h2>Sites récents</h2>
+      </div>
+      <table class="table">
+         <% @lastsites.each do |site| %> 
+         <tr>
+           <td>
+             <%= link_to site.title, hit_it_site_path(site) %> 
+            </td>
+            <td>
+             <span class="badge"><%= site.updated_at.strftime("%d %b %Y") %></span>
+          </td>
+        </tr>
+         <% end %>
+        <tr> 
+         <td> 
+         <a class="btn btn-info" href="<%= sites_valid_path %>">Voir plus...</a>   
+         </td>
+         <td></td>
+        </tr>
+      </table>
+    </div> <!-- panel heading -->
+  </div> <!-- col md 4-->
+
+   
+    <div class="col-md-4"> 
+  <div class="panel panel-default panelrow"">
+      <div class="panel-heading">
+         <h2>Top catégories</h2>
+      </div>
+      <table class="table">
+         <% @topcat.each do |cat| %> 
+         <tr>
+           <td>
+             <%= link_to cat.name, hit_it_category_path(cat)  %> 
+            </td>
+            <td>
+             <span class="badge"><%= cat.hit %></span>
+             <span class="badge"><%= Site.where(:category_id => cat.id).count %></span>
+          </td>
+        </tr>
+         <% end %>
+      </table>
+    </div> <!-- panel heading -->
+  </div> <!-- col md 4-->
+
+   
+
+  </div> <!-- row-->
+
+  
 

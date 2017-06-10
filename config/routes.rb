@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  get 'location/destroy'
+
   resources :sites do
     get 'trash_it', :on => :member  
     get 'standby_it', :on => :member  
     get 'hit_it', :on => :member 
+    get 'add_location', :on => :member
   end
 
  resources :categories do
     get 'hit_it', :on => :member 
   end
 
+  resources :locations, only: [:destroy, :show]
   resources :categories
   resources :sessions
   #resources :trash_it

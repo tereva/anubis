@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607083013) do
+ActiveRecord::Schema.define(version: 20170609164955) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "hit"
+  end
+
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "island"
+    t.string   "city"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "phone"
+    t.float    "lat",        limit: 24
+    t.float    "long",       limit: 24
+    t.integer  "site_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "name"
+    t.index ["site_id"], name: "index_locations_on_site_id", using: :btree
   end
 
   create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,9 +43,14 @@ ActiveRecord::Schema.define(version: 20170607083013) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "hit"
+    t.boolean  "poi"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.string   "tweeter"
     t.index ["category_id"], name: "index_sites_on_category_id", using: :btree
     t.index ["description", "kw", "title"], name: "FullText", type: :fulltext
   end
 
+  add_foreign_key "locations", "sites"
   add_foreign_key "sites", "categories"
 end

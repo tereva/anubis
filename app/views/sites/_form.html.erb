@@ -1,10 +1,10 @@
-<%= form_for(site) do |f| %>
+<%= form_for @site do |f| %>
   <% if site.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
 
       <ul>
-      <% site.errors.full_messages.each do |message| %>
+      <% @site.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,7 +17,7 @@
     <div class="panel panel-primary panelrow"> 
 
       <div class="panel-heading">
-     <%= site.web%>
+     <%= @site.web%> 
       </div>
 
   <div class="panel-body">
@@ -30,6 +30,54 @@
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, :class => "form-control input-sm"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :facebook %>
+    <%= f.text_field :facebook, :class => "form-control input-sm"  %>
+  </div>
+
+  <div class="form-group">
+
+<%= check_box_tag :show_location_box, '0', true, :class => "col-sm-1" %> Masquer Adresses
+
+  <div id="show_location"  style="display:none;">
+
+<% if @site.id != nil %>
+<p>
+<%= link_to 'Ajouter un adresse', add_location_site_path(@site), class: "btn btn-xs btn-default" %>
+</p>
+<% end %>
+
+<table class="table">
+
+<tr>
+<th></th>
+<th>Nom</th>
+<th>Ile</th>
+<th>Ville</th>
+<th>Rue</th>
+<th>Lat</th>
+<th>Long</th>
+</tr>
+
+   <%= f.fields_for :locations do |location| %>
+  <tr>
+
+<td>
+<%= location.check_box :_destroy %>
+</td>
+<td><%= location.text_field :name, :class => "form-control input-sm"  %></td>
+<td><%= location.text_field :island, :class => "form-control input-sm"  %></td>
+<td><%= location.text_field :city, :class => "form-control input-sm"  %></td>
+<td><%= location.text_field :street, :class => "form-control input-sm"  %></td>
+  <td><%= location.text_field :lat, :class => "form-control input-sm"  %></td>
+   <td><%= location.text_field :long, :class => "form-control input-sm"  %></td>
+    </tr>
+    <% end %>
+ </table>
+
+  </div>
   </div>
 
   <div class="form-group">

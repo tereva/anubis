@@ -1,6 +1,11 @@
 class Site < ApplicationRecord
  
   belongs_to :category
+  has_many :locations, validate: false
+
+  accepts_nested_attributes_for :locations, allow_destroy: true
+
+
 
 
  #def hit
@@ -17,8 +22,8 @@ class Site < ApplicationRecord
 def self.search(search)
   if search
     #find_by_sql("SELECT * FROM sites WHERE MATCH (description,kw,title) AGAINST ('?')",search)
-    find_by_sql ["SELECT * FROM sites WHERE MATCH (description,kw,title) AGAINST (:search)", 
-      {:search => search}]
+    find_by_sql ["SELECT * FROM sites WHERE category_id > 2 AND 
+       MATCH (description,kw,title) AGAINST (:search)", {:search => search}]
     #find_by_sql("SELECT * FROM sites WHERE MATCH (description,kw,title) AGAINST ('hotel tahiti')")
   	#where("category_id >2 AND description LIKE :search", {:search => "%#{search}%"})
    #find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
@@ -31,6 +36,8 @@ end
 def self.approved
 where('category_id IS NOT NULL AND category_id != 1 AND category_id != 2')
 end
+
+
 
 
 

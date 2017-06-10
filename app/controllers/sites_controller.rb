@@ -3,12 +3,18 @@ class SitesController < ApplicationController
   before_action :authorize, except: [:search, :show, :valid, :hit_it]
 
   
+    def add_location
+    @site=Site.find(params[:id])    
+    @site.locations.build
+    render 'edit'
+  end
 
   def hit_it
     #@site.update_attribute(:hit, @site.hit+1) 
     Site.increment_counter(:hit,params[:id])
     @site=Site.find(params[:id])
-    render 'show'
+    #render 'show'
+    redirect_to @site.web
   end
 
 
@@ -24,6 +30,7 @@ class SitesController < ApplicationController
   def valid
     @page_title = 'Sites classés'
     @sites = Site.approved.paginate(page: params[:page])
+    #render 'index', :layout => 'home_layout'
     render 'index'
   end
 
@@ -64,15 +71,23 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
+
+
   end
 
   # GET /sites/new
   def new
     @site = Site.new
+    @site.locations.new
   end
 
   # GET /sites/1/edit
   def edit
+    @site=Site.find(params[:id])
+    if @site.locations.count == 0
+      @site.locations.new
+    end
+
   end
 
   # POST /sites
@@ -82,7 +97,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to home_path, notice: 'Site was successfully created.' }
+        format.html { redirect_to edit_site_path(@site), notice: 'Site was successfully created.' }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -96,7 +111,7 @@ class SitesController < ApplicationController
   def update
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to home_path, notice: 'Site was successfully updated.' }
+        format.html { redirect_to edit_site_path(@site), notice: 'Site was successfully updated.' }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -123,6 +138,8 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:web, :title, :description, :kw, :category_id)
+      params.require(:site).permit(:web, :title, :description, :kw, :category_id, :facebook,
+        locations_attributes: [:id,:name,:island,:city,:street,:lat,:long,:_destroy])
+
     end
 end
