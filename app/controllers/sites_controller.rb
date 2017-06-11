@@ -36,13 +36,13 @@ class SitesController < ApplicationController
 
   def standby
     @page_title = 'Sites en attente'
-    @sites = Site.where("category_id IS NULL OR category_id = 2").paginate(page: params[:page])
+    @sites = Site.standbyed.paginate(page: params[:page])
     render 'index'
   end
 
   def trash
     @page_title = 'Corbeille'
-    @sites = Site.where("category_id = 1").paginate(page: params[:page])
+    @sites = Site.trashed.paginate(page: params[:page])
     render 'index'
   end
 

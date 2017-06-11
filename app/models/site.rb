@@ -45,6 +45,13 @@ where('category_id IS NOT NULL AND category_id != 1 AND category_id != 2')
 end
 
 
+def self.standbyed
+where('category_id IS NULL OR category_id = 2')
+end
+
+def self.trashed
+where('category_id = 1')
+end
 
 
 

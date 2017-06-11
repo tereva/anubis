@@ -1,6 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @page_title %></h1>
+
+ <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><%= @page_title %>
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                    <%= link_to 'Home', home_path %>
+                    </li>
+                    <li class="active"><%= @page_title %></li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
 <p>
 Il y a <%= @sites.count %> sites concernés. 
 </p>
@@ -8,6 +23,57 @@ Il y a <%= @sites.count %> sites concernés.
 <div class="pagination">
   <%= will_paginate @sites %>
 </div> 
+
+
+<% @sites.in_groups_of(3).each do |group| %>
+<div class="row">
+      <% group.each do |site| %>
+         <div class="col-md-4">
+         <% if site %>
+            <div class="panel panel-default">
+              <div class="panel-heading">       
+                <h3><%= site.web %></h3>          
+              <% if admin? %>
+                <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
+                <%= link_to 'Standby it', standby_it_site_path(site), class: "btn btn-xs btn-warning" %>
+                <% if @page_title == 'Corbeille' %>
+                  <%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete,   class: "btn btn-xs btn-danger" %>
+                <% else %>
+                  <%= link_to 'Trash it', trash_it_site_path(site), class: "btn btn-xs btn-danger" %>
+                <% end %>
+                <span class="badge"><%= site.hit %></span>
+              <% end %>
+              </div>
+
+              <div class="panel-body fixed-panel">
+               <% if site.category %>
+                  <span class="label label-info"><%= Category.find(site.category_id).name  %></span>
+                <% end %>
+                <p>
+                  <%= site.description.truncate(100) %>
+                </p>
+                <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            </li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </li>
+<%= link_to 'Voir', hit_it_site_path(site), class: "btn btn-xs btn-primary"%> 
+                            </li>
+                        </ul>
+                
+                
+              </div>
+            </div>
+         <% end %>
+        </div>
+      <% end %>
+</div>
+<% end %>
+
 
 <div class="row"> <!--  row 1  -->
 
@@ -51,7 +117,7 @@ Il y a <%= @sites.count %> sites concernés.
       </td>
     <% end %>
       <td>
-       <a href='<%= site.web %>'><%= site.web %></a>
+        <% @i %><a href='<%= site.web %>'><%= site.web %></a>
       </td>
             <td>  
         <%= site.category ? Category.find(site.category_id).name :  "vide" %>
