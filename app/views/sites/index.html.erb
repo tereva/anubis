@@ -53,7 +53,9 @@ Il y a <%= @sites.count %> sites concernés.
                   <%= site.description.truncate(100) %>
                 </p>
                 <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                  <li>
+                  <a href="<%= hit_it_site_path(site, :t => 'f')%>">
+                  <i class="fa fa-2x fa-facebook-square"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
                             </li>
@@ -61,7 +63,7 @@ Il y a <%= @sites.count %> sites concernés.
                             </li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </li>
-<%= link_to 'Voir', hit_it_site_path(site), class: "btn btn-xs btn-primary"%> 
+<%= link_to 'Voir', hit_it_site_path(site, :t => 'w'), class: "btn btn-xs btn-primary"%> 
                             </li>
                         </ul>
                 

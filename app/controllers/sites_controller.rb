@@ -13,8 +13,14 @@ class SitesController < ApplicationController
     #@site.update_attribute(:hit, @site.hit+1) 
     Site.increment_counter(:hit,params[:id])
     @site=Site.find(params[:id])
-    #render 'show'
-    redirect_to @site.web
+    t = params[:t]
+    if t == 'w'
+      redirect_to @site.web and return
+    elsif t == 'f'
+     redirect_to @site.facebook and return
+      #render plain: "OK" and return
+    end
+    redirect_back(fallback_location: root_path) and return
   end
 
 
@@ -138,7 +144,7 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:web, :title, :description, :kw, :category_id, :facebook,
+      params.require(:site).permit(:web, :title, :description, :kw, :category_id, :facebook,:t,
         locations_attributes: [:id,:name,:island,:city,:street,:lat,:long,:_destroy])
 
     end
