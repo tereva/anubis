@@ -28,8 +28,8 @@ class SitesController < ApplicationController
    #@sites = Site.search(params[:search]).paginate(page: params[:page])
    #@sites = Site.where("category_id='2'")
    #@sites = Site.where("description LIKE %?%", params[:search]).paginate(page: params[:page])
-   @sites = Site.search(params[:search])
-   render 'index2'
+   @sites = Site.search(params[:search]).paginate(page: params[:page])
+   render 'index'
    
   end
 

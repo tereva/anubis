@@ -31,8 +31,12 @@ Il y a <%= @sites.count %> sites concernés.
          <div class="col-md-4">
          <% if site %>
             <div class="panel panel-default">
-              <div class="panel-heading">       
-                <h3><%= site.web %></h3>          
+              <div class="panel-heading">  
+               <% if site.category %>
+                  <span class="label label-warning"><%= Category.find(site.category_id).name  %></span>
+                <% end %>   
+                <h3><%= site.title.titleize.truncate(30) %></h3>  
+                <%= link_to 'VOIR', hit_it_site_path(site, :t => 'w'), class: "btn btn-xs btn-info"%>         
               <% if admin? %>
                 <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
                 <%= link_to 'Standby it', standby_it_site_path(site), class: "btn btn-xs btn-warning" %>
@@ -43,31 +47,37 @@ Il y a <%= @sites.count %> sites concernés.
                 <% end %>
                 <span class="badge"><%= site.hit %></span>
               <% end %>
+              
               </div>
 
               <div class="panel-body fixed-panel">
-               <% if site.category %>
-                  <span class="label label-info"><%= Category.find(site.category_id).name  %></span>
-                <% end %>
+
                 <p>
-                  <%= site.description.truncate(100) %>
+                  <%= site.description.html_safe %>
+                  <!-- truncate(200)-->
                 </p>
                 <ul class="list-inline">
+                <% if site.facebook %>
                   <li>
                   <a href="<%= hit_it_site_path(site, :t => 'f')%>">
                   <i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            </li>
-<%= link_to 'Voir', hit_it_site_path(site, :t => 'w'), class: "btn btn-xs btn-primary"%> 
-                            </li>
+                  </li>
+                <% end %>
+                <% if site.tweeter%>
+                  <li>
+                  <a href="<%= hit_it_site_path(site, :t => 't')%>">
+                  <i class="fa fa-2x fa-tweeter-square"></i></a>
+                  </li>
+                <% end %>
+                <% if site.instagram %>
+                  <li>
+                  <a href="<%= hit_it_site_path(site, :t => 'i')%>">
+                  <i class="fa fa-2x fa-instagram"></i></a>
+                  </li>
+                <% end %>
+                
                         </ul>
-                
-                
+              
               </div>
             </div>
          <% end %>
@@ -75,74 +85,6 @@ Il y a <%= @sites.count %> sites concernés.
       <% end %>
 </div>
 <% end %>
-
-
-<div class="row"> <!--  row 1  -->
-
-<div class="col-md-12">
- <div class="panel panel-primary">
-
-  <div class="panel-heading">
-    <div class="row">
-    <div class="col-md-3">
-    </div>
-      <div class="col-md-2">
-        Site
-      </div>
-          <div class="col-md-2">
-     Catégorie
-     </div>
-      <div class="col-md-3">
-      Titre 
-     </div>
-     <div class="col-md-2">
-      Description
-     </div>
-
-
-   </div>
- </div>  
-
-   <table class="table"> 
-    <% @sites.each do |site| %>
-   <!-- <tr class=<%= site.category ? "success" :  "danger" %>> -->
-   <tr>
-   <% if admin? %>
-          <td>  
-        <%= link_to 'Edit', edit_site_path(site), class: "btn btn-xs btn-success" %>
-        <%= link_to 'Standby it', standby_it_site_path(site), class: "btn btn-xs btn-warning" %>
-        <% if @page_title == 'Corbeille' %>
-<%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete,   class: "btn btn-xs btn-danger" %>
-        <% else %>
-        <%= link_to 'Trash it', trash_it_site_path(site), class: "btn btn-xs btn-danger" %>
-        <% end %>
-      </td>
-    <% end %>
-      <td>
-        <% @i %><a href='<%= site.web %>'><%= site.web %></a>
-      </td>
-            <td>  
-        <%= site.category ? Category.find(site.category_id).name :  "vide" %>
-      </td> 
-      <td>
-         <% site.title.upcase %>
-      </td>
-      <td>  
-        <%= site.description %>
-      </td>  
-
-
-
-    </tr> <!-- one row -->
-    <% end %>
-
-  </table> <!--  panel-body -->
-
-</div> <!-- panel  -->
-
-</div><!-- bloc 2 row 1-->
- 
-</div><!-- fin row 1 -->
 
 <div class="pagination">
   <%= will_paginate @sites %>

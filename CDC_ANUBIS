@@ -1,0 +1,23 @@
+Titre : 
+-obligatoire, unique, court, 30 caractères
+-utiliser le nom de la socitété, la marque
+
+
+Web : obligatoire, unique, conserver la racine de l'URL (http://, https://)
+
+Description : 
+- pas de "limite" de longeur
+- possibilité utiliser balise formatage de texte 
+                    <strong></strong>
+                    <ul><li></li></li></ul>
+                    ...
+
+kw: 
+
+- obligatoire
+- partir du général au particulier : 
+
+(sous categorie1,sous categorie2,ile,ville,produit 1,produit 2....,service 1,service 2....)
+
+- caractères interdits : accents, apostrophes (' et ")
+- mot ou expression séparés pas une virgule

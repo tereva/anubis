@@ -3,9 +3,10 @@ class Site < ApplicationRecord
   belongs_to :category
   has_many :locations, validate: false, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :title, presence: true, uniqueness: true, length: { maximum: 30 }
   validates :web, presence: true, uniqueness: true
-  validates :kw, presence: true
+  validates :kw, presence: true, format: { with: /\A[a-zA-Z\s]+(,[a-zA-Z\s]+)*\z/,
+    message: "mots sans accents separés par une virgule" }
   validates :description, presence: true
   
 

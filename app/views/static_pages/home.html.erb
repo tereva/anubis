@@ -13,10 +13,10 @@
          <% @topsites.each do |site| %> 
          <tr>
            <td>
-             <%= link_to site.title.upcase, hit_it_site_path(site) %> 
+             <%= link_to site.title.titleize, hit_it_site_path(site) %> 
             </td>
             <td>
-             <span class="badge"><%= site.hit %></span>
+          <span class="badge"><%= site.hit ? site.hit : '0' %></span>
           </td>
         </tr>
          <% end %>
@@ -40,7 +40,7 @@
          <% @lastsites.each do |site| %> 
          <tr>
            <td>
-             <%= link_to site.title, hit_it_site_path(site) %> 
+             <%= link_to site.title.titleize, hit_it_site_path(site) %> 
             </td>
             <td>
              <span class="badge"><%= site.updated_at.strftime("%d %b %Y") %></span>
@@ -67,10 +67,9 @@
          <% @topcat.each do |cat| %> 
          <tr>
            <td>
-             <%= link_to cat.name, hit_it_category_path(cat)  %> 
+             <%= link_to cat.name.titleize, hit_it_category_path(cat)  %> 
             </td>
             <td>
-             <span class="badge"><%= cat.hit %></span>
              <span class="badge"><%= Site.where(:category_id => cat.id).count %></span>
           </td>
         </tr>

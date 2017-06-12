@@ -73,7 +73,7 @@ header {
 }
 
 .fixed-panel {
-  min-height: 20;
-  max-height: 20;
-  /*overflow-y: scroll;*/
+  min-height: 150px;
+  max-height: 150px;
+  overflow-y: auto;
 }
