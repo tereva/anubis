@@ -1,8 +1,6 @@
-$(document).on('turbolinks:load', function() {
-	$('#show_location_box').change(function() {
-		$('#show_location').toggle(!this.checked);
-	});
+(function() {
+  this.App || (this.App = {});
 
-});
+  App.cable = ActionCable.createConsumer();
 
-alert('page loaded')
+}).call(this);

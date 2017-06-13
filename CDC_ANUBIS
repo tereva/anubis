@@ -15,9 +15,9 @@ Description :
 kw: 
 
 - obligatoire
+- minuscules sans accent
+- séparateurs autorisés : virgule -> separe deux mots, espace -> expression
+- mot ou expression séparés pas une virgule
 - partir du général au particulier : 
 
 (sous categorie1,sous categorie2,ile,ville,produit 1,produit 2....,service 1,service 2....)
-
-- caractères interdits : accents, apostrophes (' et ")
-- mot ou expression séparés pas une virgule
